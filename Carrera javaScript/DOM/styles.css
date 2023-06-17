@@ -13,3 +13,8 @@
     display: block;
     margin-bottom: 1em;
 }
+
+#EDTeam {
+    background-color: yellow;
+    text-align: center;
+}

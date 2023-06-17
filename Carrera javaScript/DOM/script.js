@@ -117,3 +117,29 @@ playButton.addEventListener('click', () => {
 pauseButton.addEventListener('click', () => {
   video.pause()
 })
+
+/**
+ * Manipular el DOM
+ * ejercicio con insertBefore()
+ */
+
+const post = document.getElementById('post')
+const ad = document.createElement('div')
+ad.id = 'EDTeam'
+ad.textContent = 'Publicidad'
+
+const getMiddleChild = element => {
+  const childs = element.children,
+        l = childs.length,
+        i = Math.floor(l / 2)
+  return childs[i]
+}
+
+const middleChild = getMiddleChild(post)
+post.insertBefore(ad, middleChild)
+
+// reloj
+setInterval(() => {
+  const clock = document.getElementById('clock')
+  if(clock) clock.textContent = new Date().toLocaleTimeString()
+}, 1000);
