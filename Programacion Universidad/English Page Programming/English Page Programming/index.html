@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <style>
+        .fondo {
+            background-image: url("images/programming-evolution.jpg");
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        html {
+            font-size: 16px;
+        }
+    </style>
+    <link rel="shortcut icon" href="images/PHP-logo.svg">
+    <title>Learning PHP</title>
+</head>
+
+<body>
+    <!-- cabecera -->
+    <div class="row fondo align-items-center">
+        <h1 class="text-white text-center">Basic PHP contents, syntax and control structures</h1>
+    </div>
+    <!-- menu -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="images/PHP-logo.svg" width="60px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Definition">Definition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Basic-syntax">Basic syntax</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Types">Types</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Variables">Variables</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Control-structures">Control Structures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Operators">Operators</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Definition -->
+    <div class="container mt-3">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Definition">Definition </h1>
+        <div class="text-justify mb-3" style="text-align: justify;">
+            <p class="bg-primary text-white w-25 float-start m-2 p-2 d-none d-sm-block" style="text-align: justify;">
+                PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose 
+                scripting language that is especially suited for web development and can be embedded into HTML.</p>
+                Instead of lots of commands to output HTML (as seen in C or Perl), PHP pages contain HTML with embedded 
+                code that does "something" (in this case, output "Hi, I'm a PHP script!"). The PHP code is enclosed in 
+                special start and end processing instructions that allow you to jump into and out of "PHP mode."<br>
+                What distinguishes PHP from something like client-side JavaScript is that the code is executed on the server, 
+                generating HTML which is then sent to the client. The client would receive the results of running that script, 
+                but would not know what the underlying code was. You can even configure your web server to process all your HTML 
+                files with PHP, and then there's really no way that users can tell what you have up your sleeve.<br>
+                The best part about using PHP is that it is extremely simple for a newcomer, but offers many advanced features for a
+                professional programmer. Don't be afraid to read the long list of PHP's features. You can jump in, in a short time, and 
+                tart writing simple scripts in a few hours.
+        </div>
+    </div>
+    <!-- Basic-syntax -->
+    <div class="container mt-3">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Basic-syntax">Basic syntax </h1>
+        <div class="text-justify mb-3" style="text-align: justify;">
+            <p class="bg-primary text-white w-25 float-start m-2 p-2 d-none d-sm-block" style="text-align: justify;">
+                When PHP parses a file, it looks for opening and closing tags, which are which tell PHP to start and stop 
+                interpreting the code between them. Parsing in this manner allows PHP to be embedded in all sorts of different 
+                documents, as everything outside of a pair of opening and closing tags is ignored by the PHP parser.
+                Short tags (example three) are available by default but can be disabled either via the short_open_tag php.ini 
+                configuration file directive, or are disabled by default if PHP is built with the --disable-short-tags configuration.</p>
+                
+                If a file contains only PHP code, it is preferable to omit the PHP closing tag at the end of the file. This prevents accidental 
+                whitespace or new lines being added after the PHP closing tag, which may cause unwanted effects because PHP will start output 
+                buffering when there is no intention from the programmer to send any output at that point in the script. <br>
+                <img src="images/codigo1.png" alt="">
+
+            </div>
+            <div class="text-justify mb-3" style="text-align: justify;">
+                <p class="bg-primary text-white w-25 float-start m-2 p-2 d-none d-sm-block" style="text-align: justify;">
+                    One aspect of PHP that you need to be careful of, is that ?> will drop you out of PHP code and into HTML even 
+                    if it appears inside a // comment. (This does not apply to /* */ comments.) This can lead to unexpected results. 
+                    For example, take this line:</p>
+                <img src="images/codigo2.png" alt="">
+            </div>
+    </div>
+    <!-- Types -->
+    <div class="container mt-3">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Types">Types </h1>
+        <div id="Types" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#Types" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/null.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>NULL</h5>
+                        <p>The null type is PHP's unit type, i.e. it has only one value: null.
+
+                            Undefined, and unset() variables will resolve to the value null.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/boolean.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Booleans</h5>
+                        <p>The bool type only has two values, and is used to express a truth value. It can be either true or false.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/integer.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Integers</h5>
+                        <p>An int is a number of the set ℤ = {..., -2, -1, 0, 1, 2, ...}.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/float.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Floating point numbers</h5>
+                        <p>Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the following syntaxes:</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/strings.webp" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Strings</h5>
+                        <p>A string is a series of characters, where a character is the same as a byte. This means that PHP only supports a 256-character set, and hence does not offer native Unicode support. </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/numericstring.webp" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Numeric Strings</h5>
+                        <p>A PHP string is considered numeric if it can be interpreted as an int or a float. <br>
+
+                            Formally as of PHP 8.0.0:<br>
+                            
+                            WHITESPACES      \s*<br>
+                            LNUM             [0-9]+<br>
+                            DNUM             ([0-9]*)[\.]{LNUM}) | ({LNUM}[\.][0-9]*)<br>
+                            EXPONENT_DNUM    (({LNUM} | {DNUM}) [eE][+-]? {LNUM})<br>
+                            INT_NUM_STRING   {WHITESPACES} [+-]? {LNUM} {WHITESPACES}<br>
+                            FLOAT_NUM_STRING {WHITESPACES} [+-]? ({DNUM} | {EXPONENT_DNUM}) {WHITESPACES}<br>
+                            NUM_STRING       ({INT_NUM_STRING} | {FLOAT_NUM_STRING})<br>
+                            PHP also has a concept of leading numeric strings. This is simply a string which starts like a numeric string followed by any characters.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/array.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Arrays</h5>
+                        <p>An array in PHP is actually an ordered map. A map is a type that associates values to keys. This type is optimized for several different uses; it can be treated as an array, list (vector), hash table (an implementation of a map), dictionary, collection, stack, queue, and probably more. As array values can be other arrays, trees and multidimensional arrays are also possible.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#Types"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#Types"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Variables -->
+    <div class="container mt-3">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Variables">Variables </h1>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Definition
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Variables in PHP are represented by a dollar sign followed by the name of the variable. The variable name is case-sensitive.
+                        Variable names follow the same rules as other labels in PHP. A valid variable name starts with a letter or underscore, followed by any number of letters, numbers, or underscores. As a regular expression, it would be expressed thus: ^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Example
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <code>
+                            $var = 'Bob';<br>
+                            $Var = 'Joe';<br>
+                            echo "$var, $Var";      // outputs "Bob, Joe"<br>
+                            
+                            $4site = 'not yet';     // invalid; starts with a number<br>
+                            $_4site = 'not yet';    // valid; starts with an underscore<br>
+                            $täyte = 'mansikka';    // valid; 'ä' is (Extended) ASCII 228.
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        More
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        By default, variables are always assigned by value. That is to say, when you assign an expression to a variable, the entire value of the original expression is copied into the destination variable. This means, for instance, that after assigning one variable's value to another, changing one of those variables will have no effect on the other. For more information on this kind of assignment, see the chapter on Expressions.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Control-structures -->
+    <div class="container mt-3 text-center">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Control-structures">Control structures</h1>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="images/PHP-logo.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">IF</h5>
+                <p class="card-text">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal1">Ver detalles</a>
+            </div>
+        </div>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="images/PHP-logo.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ELSE/IF</h5>
+                <p class="card-text">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal2">Ver detalles</a>
+            </div>
+        </div>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="images/PHP-logo.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">WHILE</h5>
+                <p class="card-text">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal3">Ver detalles</a>
+            </div>
+        </div>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="images/PHP-logo.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">FOR</h5>
+                <p class="card-text">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal4">Ver detalles</a>
+            </div>
+        </div>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="images/PHP-logo.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">FOREACH</h5>
+                <p class="card-text">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal5">Ver detalles</a>
+            </div>
+        </div>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="images/PHP-logo.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">SWITCH</h5>
+                <p class="card-text">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal6">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">IF</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/if.jpg" class="img-fluid" alt="">
+                    <p style="text-align: justify;">
+                        The if construct is one of the most important features of many languages, PHP included. It allows for conditional execution of code fragments. PHP features an if structure that is similar to that of C:
+
+                            if (expr)
+                            statement
+                            As described in the section about expressions, expression is evaluated to its Boolean value. If expression evaluates to true, PHP will execute statement, and if it evaluates to false - it'll ignore it. More information about what values evaluate to false can be found in the 'Converting to boolean' section.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">ELSE/IF</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/elseif.png" class="img-fluid" alt="">
+                    <p style="text-align: justify;">
+                        elseif, as its name suggests, is a combination of if and else. Like else, it extends an if statement to execute a different statement in case the original if expression evaluates to false. However, unlike else, it will execute that alternative expression only if the elseif conditional expression evaluates to true.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">WHILE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/while.jpg" class="img-fluid" alt="">
+                    <p style="text-align: justify;">
+                        while loops are the simplest type of loop in PHP. They behave just like their C counterparts. The basic form of a while statement is:
+                        
+                        <code>while (expr)
+                            statement</code> 
+                        The meaning of a while statement is simple. It tells PHP to execute the nested statement(s) repeatedly, as long as the while expression evaluates to true. The value of the expression is checked each time at the beginning of the loop, so even if this value changes during the execution of the nested statement(s), execution will not stop until the end of the iteration (each time PHP runs the statements in the loop is one iteration). If the while expression evaluates to false from the very beginning, the nested statement(s) won't even be run once.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">FOR</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/for.webp" class="img-fluid" alt="">
+                    <p style="text-align: justify;">
+                        (PHP 4, PHP 5, PHP 7, PHP 8)
+
+                        for loops are the most complex loops in PHP. They behave like their C counterparts. The syntax of a for loop is:
+
+                        <code>for (expr1; expr2; expr3)
+                            statement</code> 
+                        The first expression (expr1) is evaluated (executed) once unconditionally at the beginning of the loop.
+
+                        In the beginning of each iteration, expr2 is evaluated. If it evaluates to true, the loop continues and the nested statement(s) are executed. If it evaluates to false, the execution of the loop ends.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">FOREACH</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/foreach.webp" class="img-fluid" alt="">
+                    <p style="text-align: justify;">
+                        The foreach construct provides an easy way to iterate over arrays. foreach works only on arrays and objects, and will issue an error when you try to use it on a variable with a different data type or an uninitialized variable. There are two syntaxes:
+
+                        <code>foreach (iterable_expression as $value)
+                            statement
+                        foreach (iterable_expression as $key => $value)
+                            statement</code>
+                        The first form traverses the iterable given by iterable_expression. On each iteration, the value of the current element is assigned to $value.
+
+                        The second form will additionally assign the current element's key to the $key variable on each iteration.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">SWITCH</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/switch.webp" class="img-fluid" alt="">
+                    <p style="text-align: justify;">
+                        The switch statement is similar to a series of IF statements on the same expression. In many occasions, you may want to compare the same variable (or expression) with many different values, and execute a different piece of code depending on which value it equals to. This is exactly what the switch statement is for.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Operators -->
+    <div class="container mt-3">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Operators">Operators</h1>
+        <div class="list-group">
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Operator Precedence</h5>
+              </div>
+              <p class="mb-1">The precedence of an operator specifies how "tightly" it binds two expressions together. For example, in the expression 1 + 5 * 3, the answer is 16 and not 18 because the multiplication ("*") operator has a higher precedence than the addition ("+") operator. Parentheses may be used to force precedence, if necessary. For instance: (1 + 5) * 3 evaluates to 18.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Arithmetic Operators</h5>
+              </div>
+              <p class="mb-1">+$a	Identity	Conversion of $a to int or float as appropriate. <br>
+                -$a	Negation	Opposite of $a.<br>
+                $a + $b	Addition	Sum of $a and $b.<br>
+                $a - $b	Subtraction	Difference of $a and $b.<br>
+                $a * $b	Multiplication	Product of $a and $b.<br>
+                $a / $b	Division	Quotient of $a and $b.<br>
+                $a % $b	Modulo	Remainder of $a divided by $b.<br>
+                $a ** $b	Exponentiation	Result of raising $a to the $b'th power.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Assignment Operators</h5>
+              </div>
+              <p class="mb-1">The basic assignment operator is "=". Your first inclination might be to think of this as "equal to". Don't. It really means that the left operand gets set to the value of the expression on the right (that is, "gets set to").
+
+                The value of an assignment expression is the value assigned. That is, the value of <code> "$a = 3"</code> is 3. This allows you to do some tricky things:</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Bitwise Operators</h5>
+              </div>
+              <p class="mb-1">$a & $b	And	Bits that are set in both $a and $b are set. <br>
+                $a | $b	Or (inclusive or)	Bits that are set in either $a or $b are set.<br>
+                $a ^ $b	Xor (exclusive or)	Bits that are set in $a or $b but not both are set.<br>
+                ~ $a	Not	Bits that are set in $a are not set, and vice versa.<br>
+                $a << $b	Shift left	Shift the bits of $a $b steps to the left (each step means "multiply by two")<br>
+                $a >> $b	Shift right	Shift the bits of $a $b steps to the right (each step means "divide by two")</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Comparison Operators</h5>
+              </div>
+              <p class="mb-1">$a == $b	Equal	true if $a is equal to $b after type juggling.<br>
+                $a === $b	Identical	true if $a is equal to $b, and they are of the same type.<br>
+                $a != $b	Not equal	true if $a is not equal to $b after type juggling.<br>
+                $a <> $b	Not equal	true if $a is not equal to $b after type juggling.<br>
+                $a !== $b	Not identical	true if $a is not equal to $b, or they are not of the same type.<br>
+                $a < $b	Less than	true if $a is strictly less than $b.<br>
+                $a > $b	Greater than	true if $a is strictly greater than $b.<br>
+                $a <= $b	Less than or equal to	true if $a is less than or equal to $b.<br>
+                $a >= $b	Greater than or equal to	true if $a is greater than or equal to $b.<br>
+                $a <=> $b	Spaceship	An int less than, equal to, or greater than zero when $a is less than, equal to, or greater than $b, respectively.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Error Control Operators</h5>
+              </div>
+              <p class="mb-1">PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any diagnostic error that might be generated by that expression will be suppressed.
+
+                If a custom error handler function is set with set_error_handler(), it will still be called even though the diagnostic has been suppressed.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Execution Operators</h5>
+              </div>
+              <p class="mb-1">PHP supports one execution operator: backticks (``). Note that these are not single-quotes! PHP will attempt to execute the contents of the backticks as a shell command; the output will be returned (i.e., it won't simply be dumped to output; it can be assigned to a variable). Use of the backtick operator is identical to shell_exec().</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Incrementing/Decrementing Operators</h5>
+              </div>
+              <p class="mb-1">++$a	Pre-increment	Increments $a by one, then returns $a. <br>
+                $a++	Post-increment	Returns $a, then increments $a by one.<br>
+                --$a	Pre-decrement	Decrements $a by one, then returns $a.<br>
+                $a--	Post-decrement	Returns $a, then decrements $a by one.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Logical Operators</h5>
+              </div>
+              <p class="mb-1">$a and $b	And	true if both $a and $b are true. <br>
+                $a or $b	Or	true if either $a or $b is true.<br>
+                $a xor $b	Xor	true if either $a or $b is true, but not both.<br>
+                ! $a	Not	true if $a is not true.<br>
+                $a && $b	And	true if both $a and $b are true.<br>
+                $a || $b	Or	true if either $a or $b is true.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Array Operators</h5>
+              </div>
+              <p class="mb-1">$a + $b	Union	Union of $a and $b.<br>
+                $a == $b	Equality	true if $a and $b have the same key/value pairs.<br>
+                $a === $b	Identity	true if $a and $b have the same key/value pairs in the same order and of the same types.<br>
+                $a != $b	Inequality	true if $a is not equal to $b.<br>
+                $a <> $b	Inequality	true if $a is not equal to $b.<br>
+                $a !== $b	Non-identity	true if $a is not identical to $b.</p>
+            </a>
+            <a href="https://www.php.net/manual/en/language.operators.php" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Type Operators</h5>
+              </div>
+              <p class="mb-1">instanceof is used to determine whether a PHP variable is an instantiated object of a certain class: <br>
+            <code>
+                class MyClass <br>
+                {<br>
+                }<br>
+                
+                class NotMyClass<br>
+                {<br>
+                }<br>
+                $a = new MyClass;<br>
+                
+                var_dump($a instanceof MyClass);<br>
+                var_dump($a instanceof NotMyClass);
+                </code></p>
+            </a>
+          </div>
+    </div>
+    <!-- Form -->
+    <div class="container">
+        <h1 class="text-center text-uppercase fst-italic fw-bold" id="Types">More information</h1>
+        <form class="needs-validation" novalidate>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="form-group row mb-2">
+                        <div class="col-md-2"><label>Name</label></div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Input your name" required>
+                            <div class="invalid-feedback">
+                                Name is wrong
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-2"><label>Email</label></div>
+                        <div class="col-md-10">
+                            <input type="email" class="form-control" placeholder="Input your email" required>
+                            <div class="invalid-feedback">
+                                Email is wrong
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-2"><label>Quiestions</label></div>
+                        <div class="col-md-10">
+                            <select class="form-select form-select-lg" multiple required>
+                                <option>What is PHP?</option>
+                                <option>What are the main features of PHP?</option>
+                                <option>How does PHP differ from other programming languages?</option>
+                                <option>What are some popular frameworks built on top of PHP?</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Quiestion is wrong
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="images/equipo.jpg" class="img-fluid img-thumbnail rounded">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+    <!-- footer -->
+    <div class="container p-4 bg-light text-center">
+        ☢Juan David Hincapie Manrique ID: 802221☢</a>
+    </div>
+</body>
+
+</html>
