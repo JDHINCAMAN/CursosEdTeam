@@ -106,3 +106,39 @@ BEGIN
 	PRINT @k;    
 	SET @k = @k + 1;
 END;
+
+/*
+	Ejercicio de procedimientos almacenados
+*/
+CREATE PROCEDURE SalesLT.TopProducts AS
+SELECT TOP(10) name, listprice            
+FROM SalesLT.Product            
+GROUP BY name, listprice            
+ORDER BY listprice DESC;            
+
+EXECUTE SalesLT.TopProducts;
+
+ALTER PROCEDURE SalesLT.TopProducts @ProductCategoryID int
+AS
+SELECT TOP(10) name, listprice        
+FROM SalesLT.Product       
+WHERE ProductCategoryID = @ProductCategoryID         
+GROUP BY name, listprice        
+ORDER BY listprice DESC; 
+
+EXECUTE SalesLT.TopProducts @ProductCategoryID = 41;
+
+CREATE FUNCTION SalesLT.GetFreightbyCustomer(@orderyear AS INT) 
+RETURNS TABLE
+AS
+RETURN
+SELECT
+customerid, SUM(freight) AS totalfreight
+FROM SalesLT.SalesOrderHeaderWHERE YEAR(orderdate) = @orderyear
+GROUP BY customerid; 
+
+SELECT * FROM SalesLT.GetFreightbyCustomer(2008)
+
+/*
+	Ejercicio de control de errores
+*/
